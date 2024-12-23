@@ -3,7 +3,7 @@ import { Button, Select, Label, TextInput } from "flowbite-react";
 import axios from "axios";
 
 // https://dev.to/ajones_codes/a-better-guide-to-forms-in-react-47f0
-function RoomForm() {
+function RoomForm({ onRoomCreated }) {
   const initialFormData = {
     type: "",
     numberOfGuests: "",
@@ -25,6 +25,7 @@ function RoomForm() {
       .post("http://localhost:8080/rooms", formData)
       .then(function (response) {
         console.log(response);
+        onRoomCreated(response.data); // pass the created Room to app
         setCreatedRoom(response.data);
         setFormData(initialFormData);
       })
@@ -37,18 +38,8 @@ function RoomForm() {
     console.log("Updated form data:", formData);
   }, [formData]);
 
-  const [createdRoom, setCreatedRoom] = useState(null);
-
   return (
     <>
-      {createdRoom && (
-        <div>
-          <h3>Room Created:</h3>
-          <p>Type: {createdRoom.type}</p>
-          <p>Guests: {createdRoom.numberOfGuests}</p>
-          <p>Price: {createdRoom.price}</p>
-        </div>
-      )}
       <form
         onSubmit={handleSubmit}
         className="flex max-w-md flex-col gap-4 py-4"

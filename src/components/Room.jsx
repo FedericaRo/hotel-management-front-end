@@ -1,13 +1,4 @@
 function Room({ room }) {
-  // const room = {
-  //     id: 1,
-  //     type: "SUITE",
-  //     numberOfGuests: 4,
-  //     price: 86.99
-  //   }
-  //   console.log(room)
-  //   console.log("ROOM");
-  //   console.log(room);
 
   return (
     <li className="py-4 border-b border-gray-200 dark:border-gray-700">
