@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function BookingsPage() {
   const [bookings, setBookings] = useState([]);
 
+  useEffect(() => {
   axios
     .get("http://localhost:8080/bookings")
     .then(function (response) {
@@ -13,6 +14,7 @@ function BookingsPage() {
     .catch(function (error) {
       console.log(error);
     });
+  }, []);
 
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4">

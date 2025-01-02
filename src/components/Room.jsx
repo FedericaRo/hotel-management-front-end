@@ -1,5 +1,6 @@
-function Room({ room }) {
+import { Link } from "react-router-dom";
 
+function Room({ room }) {
   return (
     <li className="py-4 border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center space-x-4">
@@ -28,9 +29,14 @@ function Room({ room }) {
 
         {/* Room Details */}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-lg font-bold text-gray-900 dark:text-white">
-            Room {room.id}
-          </p>
+          <Link
+            to={`/room/${room.id}`}
+            className="hover:underline"
+          >
+            <p className="truncate text-lg font-bold text-gray-900 dark:text-white">
+              Room {room.id}
+            </p>
+          </Link>
           <p className="truncate text-sm text-gray-500 dark:text-gray-400">
             <span className="font-medium text-gray-800">Type:</span> {room.type}
           </p>

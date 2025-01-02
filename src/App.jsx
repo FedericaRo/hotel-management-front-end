@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RoomsPage from "./pages/RoomsPage";
 import Layout from "./components/Layout";
 import BookingsPage from "./pages/BookingsPage";
+import RoomDetailsPage from "./pages/RoomDetailsPage";
 
 function App() {
   // const [roomList, setRoomList] = useState([]);
@@ -29,6 +30,7 @@ function App() {
             <Route index element={<RoomsPage />} />
             <Route path="rooms" element={<RoomsPage />} />
             <Route path="bookings" element={<BookingsPage />} />
+            <Route path="room/:roomId" element={<RoomDetailsPage />} />
             {/* <Route path="contact" element={<Ro />} />
           <Route path="*" element={<NoPage />} /> */}
           </Route>
