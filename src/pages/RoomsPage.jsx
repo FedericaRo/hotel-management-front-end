@@ -1,5 +1,7 @@
 import RoomList from "../components/RoomList";
 import RoomForm from "../components/RoomForm";
+import RoomFilterForm from "../components/RoomFilterForm";
+
 import { useState, useEffect } from "react";
 
 function RoomsPage() {
@@ -16,9 +18,12 @@ function RoomsPage() {
     setRooms((rooms) => [newRoom, ...rooms]);
   };
 
+  const filterRooms = (filteredRooms) => setRooms(filteredRooms.reverse())
+
   return (
     <>
       <RoomForm onRoomCreated={addRoom}></RoomForm>
+      <RoomFilterForm onFilter={filterRooms}></RoomFilterForm>
       <RoomList rooms={rooms}></RoomList>
     </>
   );
